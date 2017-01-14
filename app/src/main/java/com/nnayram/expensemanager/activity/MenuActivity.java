@@ -1,9 +1,11 @@
-package com.nnayram.expensemanager;
+package com.nnayram.expensemanager.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.nnayram.expensemanager.R;
+
+public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
