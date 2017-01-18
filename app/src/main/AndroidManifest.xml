@@ -3,18 +3,35 @@
     package="com.nnayram.expensemanager">
 
     <application
+        android:name=".core.ExpenseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MenuActivity">
+
+        <!-- Menu -->
+        <activity
+            android:name=".activity.MenuActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Credit Card Manager -->
+
+        <!-- Accounts -->
+        <activity
+            android:name=".activity.AccountActivity"
+            android:label="@string/title_activity_account"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

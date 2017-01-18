@@ -51,6 +51,15 @@ public class DBHelper extends SQLiteOpenHelper implements AccountRepository {
         return sInstance;
     }
 
+    // for testing only
+    public static synchronized DBHelper getInstanceForTest(Context context) {
+        if (sInstance == null) {
+            sInstance = new DBHelper(context.getApplicationContext(), true);
+        }
+        return sInstance;
+    }
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         // ACCOUNT

@@ -26,8 +26,7 @@ public class AccountRepositoryTest extends AndroidTestCase {
     }
 
     public void testCreateDB() {
-        DBHelper dbHelper = new DBHelper(mContext, true);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        SQLiteDatabase db = new DBHelper(mContext, true).getWritableDatabase();
         assertTrue(db.isOpen());
         db.close();
     }
