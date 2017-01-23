@@ -5,12 +5,22 @@ package com.nnayram.expensemanager.core;
  */
 public class AccountModel {
 
+    private Long id;
     private String accountName;
     private String balance;
 
-    public AccountModel(String accountName, String balance) {
+    public AccountModel(Long id, String accountName, String balance) {
+        this.id = id;
         this.accountName = accountName;
         this.balance = balance;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getBalance() {

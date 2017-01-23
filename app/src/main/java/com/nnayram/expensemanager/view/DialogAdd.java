@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.nnayram.expensemanager.R;
 
@@ -28,7 +27,7 @@ public abstract class DialogAdd extends Dialog implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_add);
+        setContentView(R.layout.dialog_budget_add);
 
         etAccountName = (EditText) findViewById(R.id.et_name);
         findViewById(R.id.btn_add).setOnClickListener(this);
@@ -38,11 +37,10 @@ public abstract class DialogAdd extends Dialog implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
-                Toast.makeText(m, etAccountName.getText(), Toast.LENGTH_SHORT).show();
-                add(etAccountName.getText().toString());
+                setAddOnClickAction(etAccountName.getText().toString());
                 break;
         }
     }
 
-    public abstract void add(String desc);
+    public abstract void setAddOnClickAction(String desc);
 }

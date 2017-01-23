@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="green">#228B22</color>
+
+    <color name="tblAccountTran">#D3D3D3</color>
+    <color name="tblBudgetTran">#D3D3D3</color>
 </resources>

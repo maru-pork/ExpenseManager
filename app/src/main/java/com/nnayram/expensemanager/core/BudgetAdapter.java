@@ -9,26 +9,23 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nnayram.expensemanager.R;
-import com.nnayram.expensemanager.activity.AccountActivity;
-import com.nnayram.expensemanager.activity.AccountTransactionActivity;
+import com.nnayram.expensemanager.activity.BudgetDetailActivity;
 
 import java.util.ArrayList;
 
 /**
- * Created by Rufo on 1/17/2017.
+ * Created by Rufo on 1/23/2017.
  */
-public class AccountAdapter extends ArrayAdapter<AccountModel>{
-
+public class BudgetAdapter extends ArrayAdapter<BudgetModel> {
     private Context m;
-    private ArrayList<AccountModel> accountModels;
+    private ArrayList<BudgetModel> budgetModels;
 
-    public AccountAdapter(Context context, int resource, ArrayList<AccountModel> accountModels) {
-        super(context, resource, accountModels);
+    public BudgetAdapter(Context context, int resource, ArrayList<BudgetModel> budgetModels) {
+        super(context, resource, budgetModels);
         this.m = context;
-        this.accountModels = new ArrayList<>(accountModels);
+        this.budgetModels = new ArrayList<>(budgetModels);
     }
 
     private class ViewHolder {
@@ -53,11 +50,11 @@ public class AccountAdapter extends ArrayAdapter<AccountModel>{
             holder.btnView = (Button) convertView.findViewById(R.id.btn_account_view);
             convertView.setTag(holder);
 
-            final Long id = accountModels.get(position).getId();
-            holder.btnView.setOnClickListener( new View.OnClickListener() {
+            final Long id = budgetModels.get(position).getId();
+            holder.btnView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent intent = new Intent(m, AccountTransactionActivity.class);
-                    intent.putExtra("ACCOUNT_ID", id);
+                    Intent intent = new Intent(m, BudgetDetailActivity.class);
+                    intent.putExtra("BUDGET_ID", id);
                     m.startActivity(intent);
                 }
             });
@@ -65,10 +62,11 @@ public class AccountAdapter extends ArrayAdapter<AccountModel>{
             holder = (ViewHolder) convertView.getTag();
         }
 
-        AccountModel accountModel = accountModels.get(position);
-        holder.accountName.setText(accountModel.getAccountName());
-        holder.balance.setText(accountModel.getBalance());
+        BudgetModel budgetModel = budgetModels.get(position);
+        holder.accountName.setText(budgetModel.getDescription());
+        holder.balance.setText(budgetModel.getBalance());
 
         return convertView;
     }
+
 }

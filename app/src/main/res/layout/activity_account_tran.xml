@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.AccountTransactionActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <include layout="@layout/toolbar" />
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        
+        
+        <RelativeLayout
+            android:id="@+id/lyt_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_account_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="BALANCE"
+                android:layout_alignParentLeft="true"/>
+            <Button
+                android:id="@+id/btn_account_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:layout_toLeftOf="@+id/btn_account_add_tran"/>
+            <Button
+                android:id="@+id/btn_account_add_tran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lyt_buttons">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TableLayout
+                    android:id="@+id/tbl_account_trans"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TableRow
+                        android:id="@+id/tr_acc_tranHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/tblAccountTran">
+                        <!-- Date -->
+                        <TextView
+                            android:id="@+id/tv_acc_tranRow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/account_tran_row_height"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:paddingRight="10dp"
+                            android:text="DATE"
+                            android:typeface="normal"
+                            android:textStyle="bold|italic"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"/>
+                        <!-- Transaction -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/account_tran_row_height"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:paddingRight="10dp"
+                            android:text="TYPE"
+                            android:typeface="normal"
+                            android:textStyle="bold|italic"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"/>
+                        <!-- Description -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/account_tran_row_height"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:paddingRight="10dp"
+                            android:text="DESCRIPTION"
+                            android:typeface="normal"
+                            android:textStyle="bold|italic"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"/>
+                        <!-- Amount -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/account_tran_row_height"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:text="AMOUNT"
+                            android:typeface="normal"
+                            android:textStyle="bold|italic"
+                            android:textColor="@android:color/black"
+                            android:fontFamily="sans-serif-medium"/>
+                    </TableRow>
+                </TableLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/tblAccountTran">
+                    <TextView
+                        android:id="@+id/tv_acc_tranPageCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="20dp"
+                        android:textStyle="bold|italic"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@android:color/black"/>
+                    <Button
+                        android:id="@+id/btn_previous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2dp"
+                        android:text="PREV"
+                        android:textStyle="bold"
+                        style="?android:attr/buttonStyleSmall"/>
+                    <Button
+                        android:id="@+id/btn_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="10dp"
+                        android:text="NEXT"
+                        android:textStyle="bold"
+                        style="?android:attr/buttonStyleSmall" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

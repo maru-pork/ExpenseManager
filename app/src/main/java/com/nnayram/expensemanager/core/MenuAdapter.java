@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.nnayram.expensemanager.R;
 import com.nnayram.expensemanager.activity.AccountActivity;
+import com.nnayram.expensemanager.activity.BudgetActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +85,15 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.CardViewHolder
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(context, AccountActivity.class);
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+            case 2:
+                cardViewHolder.cv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, BudgetActivity.class);
                         context.startActivity(intent);
                     }
                 });

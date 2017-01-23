@@ -1,5 +1,6 @@
 package com.nnayram.expensemanager.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -12,6 +13,8 @@ public class Account {
     private String description;
     private List<AccountTransaction> transactions;
     private List<AccountDistribution> distributions;
+
+    private BigDecimal totalAmount;
 
     public Long getId() {
         return id;
@@ -51,5 +54,13 @@ public class Account {
 
     public void setDistributions(List<AccountDistribution> distributions) {
         this.distributions = distributions;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
     }
 }

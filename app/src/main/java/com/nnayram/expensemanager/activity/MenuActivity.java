@@ -36,6 +36,7 @@ public class MenuActivity extends BaseActivity {
         List<MenuModel> menuModels = new ArrayList<>();
         menuModels.add(new MenuModel("Credit Card Manager", "Credit Card Transactions", R.drawable.ic_closed_caption_black_24dp));
         menuModels.add(new MenuModel("Account", "Account Summaries", R.drawable.ic_closed_caption_black_24dp));
+        menuModels.add(new MenuModel("Budget", "Budget Summaries", R.drawable.ic_closed_caption_black_24dp));
         return menuModels;
     }
 }

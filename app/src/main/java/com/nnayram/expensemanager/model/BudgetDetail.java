@@ -6,16 +6,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * Created by Rufo on 1/14/2017.
+ * Created by Rufo on 1/23/2017.
  */
-public class AccountTransaction {
+public class BudgetDetail {
 
     private Long id;
-    private String type;
     private Date date;
+    private String type;
     private String description;
     private BigDecimal amount;
-    private Account account;
+    private Budget budget;
 
     public Long getId() {
         return id;
@@ -25,20 +25,20 @@ public class AccountTransaction {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDescription() {
@@ -54,18 +54,18 @@ public class AccountTransaction {
     }
 
     public String getFormattedAmount() {
-        return NumberUtil.format().format(NumberUtil.getBigDecimalIfExists(amount));
+        return NumberUtil.format().format(amount);
     }
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public Account getAccount() {
-        return account;
+    public Budget getBudget() {
+        return budget;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setBudget(Budget budget) {
+        this.budget = budget;
     }
 }

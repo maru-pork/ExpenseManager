@@ -12,6 +12,8 @@ import com.nnayram.expensemanager.core.ExpenseApplication;
 import com.nnayram.expensemanager.model.Account;
 import com.nnayram.expensemanager.view.DialogAddAccount;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 
 /**
@@ -43,7 +45,7 @@ public class AccountActivity extends BaseActivity implements View.OnClickListene
     private void refreshAccountAdapter() {
         ArrayList<AccountModel> accountModels = new ArrayList<>();
         for (Account account : ExpenseApplication.getInstance().getDbReader().getAccounts()) {
-            accountModels.add(new AccountModel(account.getDescription(), account.getType()));
+            accountModels.add(new AccountModel(account.getId(), account.getDescription(), account.getType()));
         }
         accountListView.setAdapter(new AccountAdapter(this, R.layout.account_info, accountModels));
     }
@@ -56,14 +58,17 @@ public class AccountActivity extends BaseActivity implements View.OnClickListene
                     @Override
                     public void addAccount(String type, String name) {
                         try {
-                            ExpenseApplication.getInstance().getDbReader().addAccount(type, name);
-                            refreshAccountAdapter();
-                            dismiss();
+                            if (!StringUtils.isEmpty(type) && !StringUtils.isEmpty(name)) {
+                                ExpenseApplication.getInstance().getDbReader().addAccount(type, name);
+                                refreshAccountAdapter();
+                                dismiss();
+                            }
                         } catch (Exception e) {
                             Toast.makeText(AccountActivity.this, e.toString(), Toast.LENGTH_LONG).show();
                         }
                     }
                 }.show();
+
                 break;
         }
     }

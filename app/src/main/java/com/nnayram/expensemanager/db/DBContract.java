@@ -30,8 +30,23 @@ public class DBContract {
     public static abstract class AccountDistribution implements BaseColumns {
         public static final String TABLE_NAME = "account_distribution";
         public static final String COLUMN_ACCOUNT = "acc_id";
+        public static final String COLUMN_TRANSACTION = "accTran_id";
         public static final String COLUMN_DESCRIPTION = "accDist_desc";
         public static final String COLUMN_AMOUNT = "accDist_amount";
     }
 
+    // BUDGET
+    public static abstract class Budget implements BaseColumns {
+        public static final String TABLE_NAME = "budget";
+        public static final String COLUMN_DESCRIPTION = "budget_desc";
+    }
+
+    public static abstract class BudgetDetail implements BaseColumns {
+        public static final String TABLE_NAME = "budget_dtl";
+        public static final String COLUMN_BUDGET = "budget_id";
+        public static final String COLUMN_DATE = "budget_date";
+        public static final String COLUMN_TYPE = "budget_type";
+        public static final String COLUMN_DESCRIPTION = "budget_desc";
+        public static final String COLUMN_AMOUNT = "budget_amount";
+    }
 }

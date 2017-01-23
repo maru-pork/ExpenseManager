@@ -11,6 +11,7 @@ public class AccountDistribution {
     private String description;
     private BigDecimal amount;
     private Account account;
+    private AccountTransaction accountTransaction;
 
     public Long getId() {
         return id;
@@ -42,6 +43,14 @@ public class AccountDistribution {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public AccountTransaction getAccountTransaction() {
+        return accountTransaction;
+    }
+
+    public void setAccountTransaction(AccountTransaction accountTransaction) {
+        this.accountTransaction = accountTransaction;
     }
 }
 
